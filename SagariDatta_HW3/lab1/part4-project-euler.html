@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+
+    <script>
+
+    /* =====================
+
+    # Lab 1, Part 4 — Stretch Goal: Project Euler
+
+    ## Introduction
+
+    Practice your Javascript and math skills by solving a problem on Project
+    Euler. Project Euler is a series of challenging math and computer science
+    problems that can be solved using any language (for our class, use
+    Javascript).
+
+    Solve the first problem on this page https://projecteuler.net/archives
+    (Multiples of 3 and 5). To check your answer, create an account and you will
+    be able to submit your final result.
+
+    If you complete problem 1, move on to problem 2!
+
+    ===================== */
+
+
+    /* =====================
+
+    Start code
+
+    ===================== */
+
+    // Problem 1
+    var count1 = 0
+    for (var i = 0; i < 1001; i++){
+      if ((i % 3 == 0) && (i % 5 == 0)) {
+        count1 = count1 + i;
+      }
+      else if (i% 3 == 0) {
+        count1 = count1 + i;
+      }
+      else if (i % 5 == 0) {
+        count1 = count1 + i;
+      }
+    }
+    console.log(count1);
+
+    // Problem 2
+    var fib_num = 1;
+    var fib_num_list = [];
+    for (var j = 2; j < 4000001; j = j + 1) {
+      fib_num = fib_num + j;
+      while (fib_num <= 4000001) {
+        fib_num_list.push(fib_num);
+        break;
+      }
+    }
+    console.log(fib_num_list);
+
+    var count2 = 0;
+    for (var k = 0; k < fib_num_list.length; k = k + 1) {
+      if (fib_num_list[k] % 2 == 0) {
+        count2 = count2 + fib_num_list[k];
+      }
+    }
+    console.log(count2);
+
+
+
+
+
+
+
+
+
+
+
+
+    /* =====================
+
+    End code
+
+    ===================== */
+
+    </script>
+  </body>
+</html>
