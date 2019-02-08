@@ -84,7 +84,7 @@
         //checking array values
         //console.log(restaurantData[i]);
         //console.log(restaurantData[i][i]);
-        L.marker([restaurantData[i][0], restaurantData[i][1]]).addTo(map);
+        L.marker([restaurantData[i][0], restaurantData[i][1]]).addTo(map).bindPopup(data1[i][2]).openPopup();
     }
 
 

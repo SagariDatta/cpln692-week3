@@ -18,7 +18,7 @@ console.log('Nathan\'s list', nathanGameList);
 What is the first game in Ross's list?
 ===================== */
 
-var query1 = rossGameList[0];
+var query1 = _.first(rossGameList);
 
 console.log('What is the first game in Ross\'s list?', query1);
 
@@ -27,7 +27,7 @@ console.log('What is the first game in Ross\'s list?', query1);
 What are all of the games except for the first game in ross's list?
 ===================== */
 
-var query2 = rossGameList.slice(1);
+var query2 = _.rest(rossGameList);
 
 console.log('What are all of the games except for the first game in Ross\'s list?', query2);
 
@@ -35,7 +35,7 @@ console.log('What are all of the games except for the first game in Ross\'s list
 What is the last game in Nathan's list?
 ===================== */
 
-var query3 = nathanGameList.slice(-1);
+var query3 = _.last(nathanGameList);
 
 console.log('What is the last game in Nathan\'s list?', query3);
 
@@ -43,7 +43,7 @@ console.log('What is the last game in Nathan\'s list?', query3);
 What are all of the games in Nathan's list except for the last?
 ===================== */
 
-var query4 = nathanGameList.slice(0,-1);
+var query4 = _.without(nathanGameList, "pandemic");
 
 console.log('What are all of the games in Nathan\'s list except for the last?', query4);
 
@@ -51,17 +51,7 @@ console.log('What are all of the games in Nathan\'s list except for the last?', 
 What would Nathan's game list look like if he sold "catan"?
 ===================== */
 
-var query5 = remover();
-
-function remover () {
-  lst = []
-  for (var i = 0; i = nathanGameList.length; i = i + 1) {
-    if (nathanGameList[i] != "catan") {
-      lst = lst + nathanGameList[i]
-    }
-  }
-  return lst;
-};
+var query5 = _.without(nathanGameList, "catan");
 
 console.log('What would Nathan\'s game list look like if he sold "catan"?', query5);
 
@@ -69,7 +59,7 @@ console.log('What would Nathan\'s game list look like if he sold "catan"?', quer
 If Nathan and Ross play a board game, what are their options? This should be a list of all games owned by ross or Nathan, with no duplicates.
 ===================== */
 
-var query6 = rossGameList.concat(nathanGameList);
+var query6 = _.union(rossGameList, nathanGameList);
 
 console.log('If Nathan and Ross play a board game, what are their options? This should be a list of all games owned by ross or Nathan, with no duplicates.', query6);
 
@@ -77,16 +67,7 @@ console.log('If Nathan and Ross play a board game, what are their options? This 
 Which games are owned by both Ross and Nathan?
 ===================== */
 
-var query7;
-/*
-function common () {
-  arr = rossGameList;
-  new_arr = [];
-  for (i = 0; i < arr.length; i = i + 1) {
-    if (arr[i] ==)
-  }
-
-};
+var query7 = _.intersection(rossGameList, nathanGameList);
 
 console.log('Which games are owned by both Ross and Nathan', query7);
 
@@ -94,6 +75,6 @@ console.log('Which games are owned by both Ross and Nathan', query7);
 Which games are exclusive to collections? In other words, only owned by either Ross or Nathan.
 ===================== */
 
-var query8;
+var query8 = _.difference(rossGameList, nathanGameList);
 
 console.log('Which games are exclusive to one collection? In other words, only owned by either Ross or Nathan (but not both!).', query8);

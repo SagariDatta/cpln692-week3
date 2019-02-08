@@ -1,4 +1,3 @@
-(function(){
 
   var map = L.map('map', {
     center: [39.9522, -75.1639],
@@ -56,10 +55,23 @@
     }
   }
 
+  var isOpenned = function(school) {
+    return school.ACTIVE.toUpperCase() == 'OPEN';
+  };
+
+  var isPublicSchool = function (school) {
+    return (school.TYPE.toUpperCase() !== 'CHARTER') && (school.TYPE.toUpperCase() !== 'PRIVATE');
+  }
+  var keeperF = function(school) {
+    return isOpenned(school) && isPublicSchool(school)
+  }
+
   // filter data
   var filtered_data = [];
   var filtered_out = [];
   for (var i = 0; i < schools.length - 1; i++) {
+    console.log("this is open", isOpenned(schools[i]));
+    console.log(isPublicSchool(schools[i]));
     isOpen = schools[i].ACTIVE.toUpperCase() == 'OPEN';
     isPublic = (schools[i].TYPE.toUpperCase() !== 'CHARTER' ||
                 schools[i].TYPE.toUpperCase() !== 'PRIVATE');
@@ -106,5 +118,3 @@
       .bindPopup(filtered_data[i].FACILNAME_LABEL)
       .addTo(map);
   }
-
-})();
